@@ -1,7 +1,15 @@
 from setuptools import find_packages,setup
 from typing import List
 
-e_dot = "-e ."   # this for, when we run requirements.txt it will automatically triggers setup.py
+"""
+setup.py is the traditional method for defining package metadata and dependencies. 
+It uses setuptools or distutils to specify how the package should be built and installed. 
+The file typically includes information like the package name, version, author, dependencies, etc.
+
+"""
+
+e_dot = "-e ."   
+
 def get_requirements(filepath:str)-> List[str]:
     """
     this function will return list of requirements

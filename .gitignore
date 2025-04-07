@@ -174,3 +174,4 @@ cython_debug/
 .pypirc
 
 notes.txt
+NOTES.md
