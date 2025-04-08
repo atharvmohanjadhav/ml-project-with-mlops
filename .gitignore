@@ -175,3 +175,5 @@ cython_debug/
 
 notes.txt
 NOTES.md
+artifacts/
+logs/
