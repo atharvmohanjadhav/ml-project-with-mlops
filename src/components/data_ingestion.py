@@ -4,6 +4,7 @@ from src.logger import logging
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
+from src.components.data_transformation import DataTransformation,DataTransformationConfig
 
 @dataclass
 class DataIngestionConfig:
@@ -15,7 +16,7 @@ class DataIngestion:
     def __init__(self):
         self.ingestion_config = DataIngestionConfig()
 
-    def intiiate_data_ingestion(self):
+    def initiate_data_ingestion(self):
         logging.info("Enterd the data ingestion method!")
         try:
             df = pd.read_csv(r"D:\MLOps Udemy Krish Naik\MLops Project\notebooks\data\student.csv")
@@ -37,5 +38,11 @@ class DataIngestion:
             raise CustomException(e,sys)
 
 if __name__ == "__main__":
-    obj = DataIngestion()
-    obj.intiiate_data_ingestion()
+    try:
+        obj = DataIngestion()
+        train_df,test_df,raw_df = obj.initiate_data_ingestion()
+
+        data_trans_obj = DataTransformation()
+        data_trans_obj.intiiate_data_transformation(train_df,test_df)
+    except Exception as e:
+        raise CustomException(e,sys)
