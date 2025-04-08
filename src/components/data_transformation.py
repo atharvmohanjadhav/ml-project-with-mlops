@@ -12,7 +12,7 @@ from src.utils import save_object
 
 @dataclass
 class DataTransformationConfig:
-    preprocessor_onj_file_path= os.path.join("artifacts","data_transformation","preprocessor.pkl")
+    preprocessor_obj_file_path= os.path.join("artifacts","data_transformation","preprocessor.pkl")
     
 
 class DataTransformation():
@@ -80,7 +80,7 @@ class DataTransformation():
             ]
             logging.info("saved preprocessed array!")
 
-            save_object(file_path=self.transformation_config.preprocessor_onj_file_path,obj=preprocesssor_obj)
+            save_object(file_path=self.transformation_config.preprocessor_obj_file_path,obj=preprocesssor_obj)
             return (train_arr,test_arr,)
 
         except Exception as e:
