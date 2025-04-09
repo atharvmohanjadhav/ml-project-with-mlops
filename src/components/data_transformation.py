@@ -33,11 +33,11 @@ class DataTransformation():
             cat_pipeline = Pipeline(
                 steps=[
                     ("imputer",SimpleImputer(strategy='most_frequent')),
-                    ("one hot encoder",OneHotEncoder()),
+                    ("one hot encoder",OneHotEncoder(handle_unknown="ignore")),
                     ("scaling",StandardScaler(with_mean=False))
                 ]
             )
-            logging.info("Indivaidual Preprocessing completed!")
+            logging.info("Individual Preprocessing completed!")
 
             preprocessor = ColumnTransformer(
                 [
